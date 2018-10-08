@@ -1,6 +1,6 @@
 # Contact List App
 
-Use React to create a contact list app! 
+Use React.js, MySQL and Express.js to create a contact list app! 
 
 You can use the following data: 
 
