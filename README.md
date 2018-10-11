@@ -1,8 +1,8 @@
 # Contact List App
 
-Use React.js, MySQL and Express.js to create a contact list app! 
+Use React.js, MySQL and Express.js to create a contact list app!
 
-You can use the following data: 
+You can use the following data:
 
 ```javascript
 var contacts = [
@@ -30,7 +30,7 @@ var contacts = [
 
 ### Server
 - [ ] When a GET request is made to /api/contacts, respond with a list of contacts (just start with some made up list)
-- [ ] When a POST request is made to /api/contacts, update your database with a new entry. 
+- [ ] When a POST request is made to /api/contacts, update your database with a new entry.
 
 ## Front-end
 
@@ -38,7 +38,7 @@ var contacts = [
 - [ ] Display a list of contacts from hardcoded data. Make sure to only the first name and last name.
 
 ### Search Contacts
-- [ ] Add a search bar so that a user may see if a contact is in the list. 
+- [ ] Add a search bar so that a user may see if a contact is in the list.
 - [ ] After a user submits the search, display all matches (or partial matches) to that first or last name.
 - [ ] Handle the case of "no contact by that name found" gracefully.
 
