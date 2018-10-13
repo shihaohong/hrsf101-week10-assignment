@@ -6,12 +6,12 @@ var connection = mysql.createConnection({
   database : 'contactlist'
 });
 
-const getContact = function(callback) {
-  connection.query('select * from contacts where firstName = "John"', function (err, rows) {
+const getContact = function(input, callback) {
+  connection.query(`select firstName, lastName from contacts where firstName = "${input}";`, function (err, data) {
     if (err) {
       callback(err, null);
     } else {
-      callback(null, results);
+      callback(null, data);
     }
   });
 }

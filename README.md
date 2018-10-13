@@ -26,21 +26,21 @@ var contacts = [
 ## Back-end
 
 ### Database
-- [ ] Using MySQL, create a schema to store your contact information. You may seed the database with dummy data to test functionality
+- [√] Using MySQL, create a schema to store your contact information. You may seed the database with dummy data to test functionality
 
 ### Server
-- [ ] When a GET request is made to /api/contacts, respond with a list of contacts (just start with some made up list)
-- [ ] When a POST request is made to /api/contacts, update your database with a new entry.
+- [√] When a GET request is made to /api/contacts, respond with a list of contacts (just start with some made up list)
+- [√] When a POST request is made to /api/contacts, update your database with a new entry.
 
 ## Front-end
 
 ### Display Contacts
-- [ ] Display a list of contacts from hardcoded data. Make sure to only the first name and last name.
+- [√] Display a list of contacts from hardcoded data. Make sure to only the first name and last name.
 
 ### Search Contacts
-- [ ] Add a search bar so that a user may see if a contact is in the list.
-- [ ] After a user submits the search, display all matches (or partial matches) to that first or last name.
-- [ ] Handle the case of "no contact by that name found" gracefully.
+- [√] Add a search bar so that a user may see if a contact is in the list.
+- [√] After a user submits the search, display all matches (or partial matches) to that first or last name.
+- [√] Handle the case of "no contact by that name found" gracefully.
 
 ### Add/Remove Contacts Contacts
 - [ ] Make form for users to add contacts functional. Add validation to ensure that every field cannot be empty.
