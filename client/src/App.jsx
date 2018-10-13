@@ -20,16 +20,21 @@ class App extends React.Component {
         }
       ],
       searchValue: '',
-      searchResults: ''
+      searchResults: '',
+      inputName: '',
+      inputNumber: 0,
+      deleteName: ''
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.contactSearch = this.contactSearch.bind(this);
+    this.addContact = this.addContact.bind(this);
+    this.deleteContact = this.deleteContact.bind(this);
   }
 
   handleChange(event) {
     this.setState({
-      searchValue: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -55,12 +60,52 @@ class App extends React.Component {
     });
   }
 
+  addContact(event) {
+    event.preventDefault();
+    if (this.state.inputName.length === 0) {
+      alert('Name Required');
+      return
+    }
+    if (this.state.inputNumber === 0) {
+      alert('Number Required');
+      return
+    }
+
+    axios.post('/api/contacts', {
+    //keeping it simple for mvp by storing whole name as firstName in db
+      firstName: this.state.inputName,
+      phone: this.state.inputNumber
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  deleteContact() {
+    if (confirm('really delete?')) {
+      axios.delete('/api/contacts', {
+        data: {
+          name: this.state.deleteName
+        }
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    } 
+  }
+
 
   render() {
     var contacts=[];
     if (this.state.searchResults !== 'no results found') {
       for (var i = 0; i < this.state.searchResults.length; i++) {
-        contacts.push(this.state.searchResults[i].firstName + ' ' + this.state.searchResults[i].lastName);
+        contacts.push(this.state.searchResults[i].firstName);// + ' ' + this.state.searchResults[i].lastName);
       }
     } else {
       contacts = this.state.searchResults;
@@ -69,23 +114,30 @@ class App extends React.Component {
     return(
       <div>
         <h1>Contact List</h1>
-        <form>
           <label className="contact-form-item">
             Name:
-            <input value="" />
+            <input name={'inputName'} onChange={this.handleChange} />
           </label>
           <label className="contact-form-item">
             Contact Number:
-            <input value="" />
+            <input name={'inputNumber'} onChange={this.handleChange} />
           </label>
-          <button className="contact-form-item">
+          <button className="contact-form-item" onClick={this.addContact}>
             Add Contact
           </button>
-        </form>
+
 
         <Search contactSearch={this.contactSearch} handleChange={this.handleChange}/>
 
         <div>{contacts}</div>
+
+        <label className="contact-form-item">
+          Delete Contact:
+          <input name={'deleteName'} onChange={this.handleChange} />
+        </label>
+        <button className="contact-form-item" onClick={this.deleteContact}>
+          Delete Contact
+        </button>
 
       </div>
     )

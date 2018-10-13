@@ -18,13 +18,23 @@ app.get('/api/contacts', (req, res) => {
 })
 
 app.post('/api/contacts', (req, res) => {
-  db.addContact(function(err, data) {
+  db.addContact(req.body, function(err, data) {
     if (err) {
       console.log(err, null);
     } else {
       console.log('successful post');
     }
   });
+})
+
+app.delete('/api/contacts', (req, res) => {
+  db.deleteContact(req.body.name, function(err, data) {
+    if (err) {
+      console.log(err, null);
+    } else {
+      console.log('successful delete');
+    }
+  })
 })
 
 app.listen(8080, () => console.log('listening on port 8080!'));

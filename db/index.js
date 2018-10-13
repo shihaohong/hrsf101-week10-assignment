@@ -16,15 +16,22 @@ const getContact = function(input, callback) {
   });
 }
 
-const addContact = function(item, callback) {
-  connection.query('insert into contacts (firstName, lastName) values ("Matt", "R");', function (err, rows) {
+const addContact = function(input, callback) {
+  connection.query(`insert into contacts (firstName, phone) values ("${input.firstName}", ${input.phone});`, function (err, data) {
     if (err) {
       callback(err, null);
-    } else {
-      console.log('good post');
+    }
+  });
+}
+
+const deleteContact = function(input, callback) {
+  connection.query(`delete from contacts where firstName = "${input}";`, function (err, data) {
+    if (err) {
+      callback(err, null);
     }
   });
 }
 
 module.exports.getContact = getContact;
 module.exports.addContact = addContact;
+module.exports.deleteContact = deleteContact;

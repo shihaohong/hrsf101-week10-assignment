@@ -43,9 +43,9 @@ var contacts = [
 - [√] Handle the case of "no contact by that name found" gracefully.
 
 ### Add/Remove Contacts Contacts
-- [ ] Make form for users to add contacts functional. Add validation to ensure that every field cannot be empty.
-- [ ] Display only user added contacts, not the hardcoded data.
-- [ ] Add a button to remove contacts, prompting for validation so that the user needs to confirm before deletion.
+- [√] Make form for users to add contacts functional. Add validation to ensure that every field cannot be empty.
+- [√] Display only user added contacts, not the hardcoded data.
+- [√] Add a button to remove contacts, prompting for validation so that the user needs to confirm before deletion.
 
 ### Favorites
 - [ ] Add a button to each list item that allows the user to toggle a 'favorites' property.

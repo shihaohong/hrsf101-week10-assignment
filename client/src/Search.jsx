@@ -6,7 +6,7 @@ function Search(props) {
     <div>
       <label className="contact-form-item">
         Search:
-        <input onChange={props.handleChange}/>
+        <input name={'searchValue'} onChange={props.handleChange}/>
       </label>
       <button className="contact-form-item" onClick={props.contactSearch}>
         Search
