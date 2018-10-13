@@ -1,9 +1,13 @@
+import React from 'react';
+
 const Contact = props => (
   <div id="contacts">
-    <div class="contact">
+    <div className="contact">
       <div>
-        {props.contact.firstName} {props.contact.lastName}
+        {props.contactInfo.firstName} {props.contactInfo.lastName}
       </div>
     </div>
   </div>
 );
+
+export default Contact;
