@@ -26,26 +26,28 @@ var contacts = [
 ## Back-end
 
 ### Database
-- [ ] Using MySQL, create a schema to store your contact information. You may seed the database with dummy data to test functionality
+- [X] Using MySQL, create a schema to store your contact information. You may seed the database with dummy data to test functionality
 
 ### Server
-- [ ] When a GET request is made to /api/contacts, respond with a list of contacts (just start with some made up list)
-- [ ] When a POST request is made to /api/contacts, update your database with a new entry. 
+- [X] When a GET request is made to /api/contacts, respond with a list of contacts (just start with some made up list)
+- [X] When a POST request is made to /api/contacts, update your database with a new entry. 
 
 ## Front-end
 
 ### Display Contacts
-- [ ] Display a list of contacts from hardcoded data. Make sure to only the first name and last name.
+- [X] Display a list of contacts from hardcoded data. Make sure to only the first name and last name.
 
 ### Search Contacts
-- [ ] Add a search bar so that a user may see if a contact is in the list. 
+
+- [X] Add a search bar so that a user may see if a contact is in the list. 
 - [ ] After a user submits the search, display all matches (or partial matches) to that first or last name.
 - [ ] Handle the case of "no contact by that name found" gracefully.
 
 ### Add/Remove Contacts Contacts
-- [ ] Make form for users to add contacts functional. Add validation to ensure that every field cannot be empty.
-- [ ] Display only user added contacts, not the hardcoded data.
-- [ ] Add a button to remove contacts, prompting for validation so that the user needs to confirm before deletion.
+****** STILL NEED TO ADD VALIDATIONS ******
+- [X] Make form for users to add contacts functional. Add validation to ensure that every field cannot be empty.
+- [X] Display only user added contacts, not the hardcoded data.
+- [X] Add a button to remove contacts, prompting for validation so that the user needs to confirm before deletion.
 
 ### Favorites
 - [ ] Add a button to each list item that allows the user to toggle a 'favorites' property.
