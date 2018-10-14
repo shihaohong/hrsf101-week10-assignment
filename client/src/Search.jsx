@@ -3,9 +3,8 @@ import React from 'react';
 const SearchContacts = props => {
   return (
     <div>
-      {/* <form onSubmit={props.queryContacts}> */}
+      <label className="contact-form-item">Search Contacts:</label>
       <input type="text" onChange={props.queryContacts} />
-      {/* </form> */}
     </div>
   );
 };

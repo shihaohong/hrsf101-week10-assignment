@@ -11,7 +11,7 @@ class AddContact extends React.Component {
       address: ''
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit - this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -21,9 +21,6 @@ class AddContact extends React.Component {
   }
 
   handleSubmit() {
-    console.log(this);
-    console.log(this.state);
-    console.log('this.props', this.props);
     this.props.saveContact(this.state);
   }
 

@@ -17,7 +17,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('comp did mount triggering');
     this.getContacts();
   }
 
@@ -31,7 +30,7 @@ class App extends React.Component {
         });
       })
       .catch(error => {
-        console.log('error here', error);
+        console.log('error during axios get request', error);
       });
   }
 
@@ -39,19 +38,17 @@ class App extends React.Component {
     axios
       .post('/app/contacts', newContact)
       .then(() => {
-        console.log('contact successfully saved');
         this.getContacts();
       })
       .catch(error => {
-        console.log(error);
+        console.log('error during axios post request', error);
       });
   }
 
   queryContacts(event) {
-    console.log(event.target.value);
     var searchedContacts = [];
     for (var i = 0; i < this.state.contacts.length; i++) {
-      if (this.state.contacts[i].firstName.toLowerCase().includes(event.target.value) || this.state.contacts[i].lastName.toLowerCase().includes(event.target.value)) {
+      if (this.state.contacts[i].firstName.toLowerCase().includes(event.target.value.toLowerCase()) || this.state.contacts[i].lastName.toLowerCase().includes(event.target.value.toLowerCase())) {
         searchedContacts.push(this.state.contacts[i]);
       }
     }
@@ -67,7 +64,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.contacts.data);
     return (
       <div>
         <SearchContacts queryContacts={this.queryContacts} />
