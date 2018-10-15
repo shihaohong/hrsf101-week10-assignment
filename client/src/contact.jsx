@@ -5,16 +5,16 @@ class Contact extends React.Component{
     super(props);
   }
   render(){
-    return(
-      <div>
-      <span>{this.props.contact.firstName + " "}{this.props.contact.lastName}</span>
-      <button onClick={()=>this.deleteContact}> Delete Contact</button>
-    </div>
+    return( 
+      <form onSubmit={this.props.deleteContact} value={this.props.contact.lastName}>
+      <div id={this.props.contact.lastName}>{this.props.contact.firstName + " "}{this.props.contact.lastName}</div>
+      <button type="submit" value={this.props.contact.lastName}> Delete Contact</button>
+    </form>
   
     )
   }
 }
 
-
+//onClick={()=>this.props.deleteContact}
 
 export default Contact;

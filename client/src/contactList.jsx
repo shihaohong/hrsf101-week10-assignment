@@ -5,18 +5,16 @@ import axios from 'axios';
 class ContactList extends React.Component {
   constructor(props){
     super(props);
-    this.deleteContact = this.deleteContact.bind(this);
   }
-  deleteContact(name){
-    axios.delete('/api/contacts/)
-  }
+
+
   render() {
     return(
       <div>
-      <div>
+      <div >
       {
-        props.contactList.map(contact => <Contact contact={contact} 
-         deleteContact={this.deleteContact}/> )
+        this.props.contactList.map(contact => <Contact contact={contact} key={contact.id}
+         deleteContact={this.props.deleteContact}/> )    
       }
     </div>
 

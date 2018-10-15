@@ -3,6 +3,7 @@ import axios from 'axios'
 import ContactForm from './contactForm.jsx'
 import ContactList from './contactList.jsx'
 import Search from './search.jsx'
+import $ from 'jquery'
 
 
 class App extends React.Component {
@@ -10,10 +11,13 @@ class App extends React.Component {
     super(props);
     this.state = {
       contacts: [],
-      
+      deleteId: ''
     }
     this.getContact = this.getContact.bind(this);
     this.postContact = this.postContact.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.deleteContactOnClick = this.deleteContactOnClick.bind(this);
+
   }
 
   componentDidMount() {
@@ -45,7 +49,27 @@ class App extends React.Component {
         console.log('cannot post', error);
       });
   }
+  deleteContactOnClick(e){
+    axios.delete(`/api/contacts`, {params: {id: deleteId}})
+    .then(res => {
 
+    })
+    .catch(error => {
+      console.log('cannot delete', error)
+    })
+  }
+
+  handleDelete(e){
+    e.preventDefault();
+    let remainingContacts = this.state.contacts.splice(this.state.contacts.id, 1)
+    this.setState({
+      deleteId : this.state.contacts.lastName
+    })
+    console.log(deleteId)
+    this.deleteContactOnClick()
+  }
+
+  
 
 
   render() {
@@ -53,7 +77,7 @@ class App extends React.Component {
       <div>
         <Search />
         <ContactForm postContact={this.postContact}/>
-        <ContactList contactList={this.state.contacts}/>
+        <ContactList contactList={this.state.contacts} deleteContact={this.handleDelete}/>
       </div>
     )
   }
