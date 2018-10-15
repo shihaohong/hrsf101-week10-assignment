@@ -8,14 +8,16 @@ class Search extends React.Component {
     super(props);
     this.state = {
       value: '',
+      searched: false,
       results: []
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.searchContact = this.searchContact.bind(this);
   }
   searchContact() {
+
     axios
-    .get('/api/contacts/name', this.state.value)
+    .get('/api/contacts/name', {params: {name: this.state.value}})
     .then(response => {
        this.setState({
          contacts: response.data
@@ -31,9 +33,11 @@ class Search extends React.Component {
 
 
  handleInputChange(e) {
+  e.preventDefault();
   console.log('search value', e.target.value)
   this.setState({
-    value: e.target.value
+    value: e.target.value,
+    searched: true
   }, () => {
     if(this.state.value.length > 1){
       this.searchContact()
@@ -42,6 +46,9 @@ class Search extends React.Component {
  }
 
  render() {
+   if (searched === true) {
+     
+   }
    return (
        <form>
          <label> Search Contacts:
@@ -54,7 +61,7 @@ class Search extends React.Component {
        </label>
        <input type="submit" value="Submit" />
 
-      <SearchResults results={this.state.results}/>
+      <div>Search Results: {this.state.results}</div>
 
        </form>
     

@@ -36,8 +36,8 @@ const postContacts = (contact, postContact) => {
   })
 }
 
-const deleteContact = (firstName, lastName, deleteContact) => {
-  connection.query(`delete * from contactlist where firstname = "${firstName}" and lastname="${lastName}`, (error, data) => {
+const deleteContact = (contact, deleteContact) => {
+  connection.query(`delete * from contactlist where lastname="${contact.deleteId}`, (error, data) => {
     if (error) {
       deleteContact(error, null)
     } else {

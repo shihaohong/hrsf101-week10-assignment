@@ -17,7 +17,7 @@ app.get('/api/contacts', (req, res) => {
 })
 
 app.get('/api/contacts/:name', (req, res) => {
-  let firstName = req.params.firstName
+  let firstName = req.params.name
   db.searchContacts(firstName, (err, data) => {
     if (err) {
       console.log('not getting')
@@ -27,8 +27,15 @@ app.get('/api/contacts/:name', (req, res) => {
   })
 })
 
-app.delete('api/contacts/:name', (req, res) => {
-  db.deleteContact((err))
+app.delete('api/contacts', (req, res) => {
+  console.log(req.params.id)
+  db.deleteContact(req.params.id, (err) => {
+    if(err){
+      console.log('server error cant delete', err)
+      res.sendStatus(400);
+    }
+    res.status(200).send('delete successful') 
+  })
 })
 
 
